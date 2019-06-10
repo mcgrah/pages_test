@@ -1,0 +1,1454 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>galaxy.api &mdash; GOG Galaxy Python Plugin API 0.31.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="GOG Galaxy - Community Integration - Python API" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GOG Galaxy Python Plugin API
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.31.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#basic-usage">Basic usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#deployment">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#legal-notice">Legal Notice</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-galaxy.api.plugin">plugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-galaxy.api.types">types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-galaxy.api.consts">consts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#errors">errors</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GOG Galaxy Python Plugin API</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>galaxy.api</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/galaxy.api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="galaxy-api">
+<h1>galaxy.api<a class="headerlink" href="#galaxy-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-galaxy.api.plugin">
+<span id="plugin"></span><h2>plugin<a class="headerlink" href="#module-galaxy.api.plugin" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="galaxy.api.plugin.Plugin">
+<em class="property">class </em><code class="descclassname">galaxy.api.plugin.</code><code class="descname">Plugin</code><span class="sig-paren">(</span><em>platform</em>, <em>version</em>, <em>reader</em>, <em>writer</em>, <em>handshake_token</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Use and override methods of this class to create a new platform implementation.</p>
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.store_credentials">
+<code class="descname">store_credentials</code><span class="sig-paren">(</span><em>credentials</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.store_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client to store authentication credentials.
+Credentials are passed on the next authenticate call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>credentials</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>) – credentials that client will store; they are stored locally on a user pc</p>
+</dd>
+</dl>
+<p>Example use case of store_credentials:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">pass_login_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">cookies</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">got_everything</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span><span class="n">cookies</span><span class="p">):</span>
+        <span class="n">user_data</span> <span class="o">=</span> <span class="n">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_credentials</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span><span class="n">cookies</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">next_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_next_params</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span><span class="n">cookies</span><span class="p">)</span>
+        <span class="n">next_cookies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_next_cookies</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span><span class="n">cookies</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">NextStep</span><span class="p">(</span><span class="s2">&quot;web_session&quot;</span><span class="p">,</span> <span class="n">next_params</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="n">next_cookies</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">store_credentials</span><span class="p">(</span><span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;credentials&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">Authentication</span><span class="p">(</span><span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;userId&#39;</span><span class="p">],</span> <span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.add_game">
+<code class="descname">add_game</code><span class="sig-paren">(</span><em>game</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.add_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client to add game to the list of owned games
+of the currently authenticated user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game</strong> (<a class="reference internal" href="#galaxy.api.types.Game" title="galaxy.api.types.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code></a>) – Game to add to the list of owned games</p>
+</dd>
+</dl>
+<p>Example use case of add_game:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">check_for_new_games</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">games</span> <span class="o">=</span> <span class="n">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_owned_games</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">games</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">game</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">owned_games_cache</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">owned_games_cache</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">game</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">add_game</span><span class="p">(</span><span class="n">game</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.remove_game">
+<code class="descname">remove_game</code><span class="sig-paren">(</span><em>game_id</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.remove_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client to remove game from the list of owned games
+of the currently authenticated user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – game id of the game to remove from the list of owned games</p>
+</dd>
+</dl>
+<p>Example use case of remove_game:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">check_for_removed_games</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">games</span> <span class="o">=</span> <span class="n">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_owned_games</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">owned_games_cache</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">game</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">games</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">owned_games_cache</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">game</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">remove_game</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">game_id</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.update_game">
+<code class="descname">update_game</code><span class="sig-paren">(</span><em>game</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.update_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client to update the status of a game
+owned by the currently authenticated user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game</strong> (<a class="reference internal" href="#galaxy.api.types.Game" title="galaxy.api.types.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code></a>) – Game to update</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.unlock_achievement">
+<code class="descname">unlock_achievement</code><span class="sig-paren">(</span><em>game_id</em>, <em>achievement</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.unlock_achievement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client to unlock an achievement for a specific game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – game_id of the game for which to unlock an achievement.</p></li>
+<li><p><strong>achievement</strong> (<a class="reference internal" href="#galaxy.api.types.Achievement" title="galaxy.api.types.Achievement"><code class="xref py py-class docutils literal notranslate"><span class="pre">Achievement</span></code></a>) – achievement to unlock.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.game_achievements_import_success">
+<code class="descname">game_achievements_import_success</code><span class="sig-paren">(</span><em>game_id</em>, <em>achievements</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.game_achievements_import_success" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client that import of achievements for a given game has succeeded.
+This method is called by import_games_achievements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the game for which the achievements were imported</p></li>
+<li><p><strong>achievements</strong> – list of imported achievements</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.game_achievements_import_failure">
+<code class="descname">game_achievements_import_failure</code><span class="sig-paren">(</span><em>game_id</em>, <em>error</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.game_achievements_import_failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client that import of achievements for a given game has failed.
+This method is called by import_games_achievements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the game for which the achievements import failed</p></li>
+<li><p><strong>error</strong> (<a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationError</span></code></a>) – error which prevented the achievements import</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.update_local_game_status">
+<code class="descname">update_local_game_status</code><span class="sig-paren">(</span><em>local_game</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.update_local_game_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client to update the status of a local game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>local_game</strong> (<a class="reference internal" href="#galaxy.api.types.LocalGame" title="galaxy.api.types.LocalGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalGame</span></code></a>) – the LocalGame to update</p>
+</dd>
+</dl>
+<p>Example use case triggered by the <a class="reference internal" href="#galaxy.api.plugin.Plugin.tick" title="galaxy.api.plugin.Plugin.tick"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tick()</span></code></a> method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">_check_statuses</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_local_games</span><span class="p">():</span>
+        <span class="k">if</span> <span class="n">game</span><span class="o">.</span><span class="n">status</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_game_statuses</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">id</span><span class="p">):</span>
+            <span class="k">continue</span>
+<span class="hll">        <span class="bp">self</span><span class="o">.</span><span class="n">update_local_game_status</span><span class="p">(</span><span class="n">LocalGame</span><span class="p">(</span><span class="n">game</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">game</span><span class="o">.</span><span class="n">status</span><span class="p">))</span>
+</span>        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_games_statuses</span><span class="p">[</span><span class="n">game</span><span class="o">.</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">status</span>
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># interval</span>
+
+<span class="k">def</span> <span class="nf">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_statuses_task</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_statuses_task</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_statuses_task</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_check_statuses</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.add_friend">
+<code class="descname">add_friend</code><span class="sig-paren">(</span><em>user</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.add_friend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client to add a user to friends list of the currently authenticated user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>user</strong> (<a class="reference internal" href="#galaxy.api.types.FriendInfo" title="galaxy.api.types.FriendInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">FriendInfo</span></code></a>) – FriendInfo of a user that the client will add to friends list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.remove_friend">
+<code class="descname">remove_friend</code><span class="sig-paren">(</span><em>user_id</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.remove_friend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client to remove a user from friends list of the currently authenticated user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>user_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the user to remove from friends list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.update_room">
+<code class="descname">update_room</code><span class="sig-paren">(</span><em>room_id</em>, <em>unread_message_count=None</em>, <em>new_messages=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.update_room" title="Permalink to this definition">¶</a></dt>
+<dd><p>WIP, Notify the client to update the information regarding
+a chat room that the currently authenticated user is in.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>room_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the room to update</p></li>
+<li><p><strong>unread_message_count</strong> – information about the new unread message count in the room</p></li>
+<li><p><strong>new_messages</strong> – list of new messages that the user received</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.update_game_time">
+<code class="descname">update_game_time</code><span class="sig-paren">(</span><em>game_time</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.update_game_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client to update game time for a game.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game_time</strong> (<a class="reference internal" href="#galaxy.api.types.GameTime" title="galaxy.api.types.GameTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">GameTime</span></code></a>) – game time to update</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.game_time_import_success">
+<code class="descname">game_time_import_success</code><span class="sig-paren">(</span><em>game_time</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.game_time_import_success" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client that import of a given game_time has succeeded.
+This method is called by import_game_times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game_time</strong> (<a class="reference internal" href="#galaxy.api.types.GameTime" title="galaxy.api.types.GameTime"><code class="xref py py-class docutils literal notranslate"><span class="pre">GameTime</span></code></a>) – game_time which was imported</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.game_time_import_failure">
+<code class="descname">game_time_import_failure</code><span class="sig-paren">(</span><em>game_id</em>, <em>error</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.game_time_import_failure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client that import of a game time for a given game has failed.
+This method is called by import_game_times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the game for which the game time could not be imported</p></li>
+<li><p><strong>error</strong> (<a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ApplicationError</span></code></a>) – error which prevented the game time import</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.lost_authentication">
+<code class="descname">lost_authentication</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.lost_authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Notify the client that plugin has lost authentication for the
+current user and is unable to perform actions which would require it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.tick">
+<code class="descname">tick</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.tick" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called periodically.
+Override it to implement periodical non-blocking tasks.
+This method is called internally.</p>
+<p>Example of possible override of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">tick</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">checking_for_new_games</span><span class="p">:</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">check_for_new_games</span><span class="p">())</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">checking_for_removed_games</span><span class="p">:</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">check_for_removed_games</span><span class="p">())</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">updating_game_statuses</span><span class="p">:</span>
+        <span class="n">asyncio</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">update_game_statuses</span><span class="p">())</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.shutdown">
+<code class="descname">shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called on plugin shutdown.
+Override it to implement tear down.
+This method is called by the GOG Galaxy client.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.authenticate">
+<code class="descname">authenticate</code><span class="sig-paren">(</span><em>stored_credentials=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.authenticate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to handle plugin authentication.
+This method should either return <a class="reference internal" href="#galaxy.api.types.Authentication" title="galaxy.api.types.Authentication"><code class="xref py py-class docutils literal notranslate"><span class="pre">Authentication</span></code></a> if the authentication is finished
+or <a class="reference internal" href="#galaxy.api.types.NextStep" title="galaxy.api.types.NextStep"><code class="xref py py-class docutils literal notranslate"><span class="pre">NextStep</span></code></a> if it requires going to another url.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>stored_credentials</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code>]) – If the client received any credentials to store locally
+in the previous session they will be passed here as a parameter.</p>
+</dd>
+</dl>
+<p>Example of possible override of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stored_credentials</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">stored_credentials</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">NextStep</span><span class="p">(</span><span class="s2">&quot;web_session&quot;</span><span class="p">,</span> <span class="n">PARAMS</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="n">COOKIES</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">user_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authenticate</span><span class="p">(</span><span class="n">stored_credentials</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">AccessDenied</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">InvalidCredentials</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Authentication</span><span class="p">(</span><span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;userId&#39;</span><span class="p">],</span> <span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.get_friends">
+<code class="descname">get_friends</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.get_friends" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to return the friends list
+of the currently authenticated user.
+This method is called by the GOG Galaxy client.</p>
+<p>Example of possible override of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">get_friends</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_http_client</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="n">AuthenticationRequired</span><span class="p">()</span>
+
+    <span class="n">friends</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve_friends</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">friends</span>
+</pre></div>
+</td></tr></table></div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#galaxy.api.types.FriendInfo" title="galaxy.api.types.FriendInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">FriendInfo</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.get_local_games">
+<code class="descname">get_local_games</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.get_local_games" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to return the list of
+games present locally on the users pc.
+This method is called by the GOG Galaxy client.</p>
+<p>Example of possible override of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">get_local_games</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">local_games</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">games_present_on_user_pc</span><span class="p">:</span>
+        <span class="n">local_game</span> <span class="o">=</span> <span class="n">LocalGame</span><span class="p">()</span>
+        <span class="n">local_game</span><span class="o">.</span><span class="n">game_id</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">local_game</span><span class="o">.</span><span class="n">local_game_state</span> <span class="o">=</span> <span class="n">game</span><span class="o">.</span><span class="n">get_installation_status</span><span class="p">()</span>
+        <span class="n">local_games</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">local_game</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">local_games</span>
+</pre></div>
+</td></tr></table></div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#galaxy.api.types.LocalGame" title="galaxy.api.types.LocalGame"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalGame</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.get_owned_games">
+<code class="descname">get_owned_games</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.get_owned_games" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to return owned games
+for the user that is currently logged in to the plugin.
+This method is called by the GOG Galaxy client.</p>
+<p>Example of possible override of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">get_owned_games</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">authenticated</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="n">AuthenticationRequired</span><span class="p">()</span>
+
+    <span class="n">games</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">retrieve_owned_games</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">games</span>
+</pre></div>
+</td></tr></table></div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#galaxy.api.types.Game" title="galaxy.api.types.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.get_room_history_from_message">
+<code class="descname">get_room_history_from_message</code><span class="sig-paren">(</span><em>room_id</em>, <em>message_id</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.get_room_history_from_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>WIP, Override this method to return the chat room history since the message provided in parameter.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>room_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the room</p></li>
+<li><p><strong>message_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the message since which the history should be retrieved</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.get_room_history_from_timestamp">
+<code class="descname">get_room_history_from_timestamp</code><span class="sig-paren">(</span><em>room_id</em>, <em>from_timestamp</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.get_room_history_from_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>WIP, Override this method to return the chat room history since the timestamp provided in parameter.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>room_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the room</p></li>
+<li><p><strong>from_timestamp</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – timestamp since which the history should be retrieved</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.get_rooms">
+<code class="descname">get_rooms</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.get_rooms" title="Permalink to this definition">¶</a></dt>
+<dd><p>WIP, Override this method to return the chat rooms in which the user is currently in.
+This method is called by the GOG Galaxy client</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#galaxy.api.types.Room" title="galaxy.api.types.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">Room</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.get_users">
+<code class="descname">get_users</code><span class="sig-paren">(</span><em>user_id_list</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.get_users" title="Permalink to this definition">¶</a></dt>
+<dd><p>WIP, Override this method to return the list of users matching the provided ids.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>user_id_list</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – list of user ids</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#galaxy.api.types.UserInfo" title="galaxy.api.types.UserInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserInfo</span></code></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.import_game_times">
+<code class="descname">import_game_times</code><span class="sig-paren">(</span><em>game_ids</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.import_game_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to return game times for
+games owned by the currently authenticated user.
+Call game_time_import_success/game_time_import_failure for each game_id on the list.
+This method is called by GOG Galaxy Client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game_ids</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – ids of the games for which the game time is imported</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.import_games_achievements">
+<code class="descname">import_games_achievements</code><span class="sig-paren">(</span><em>game_ids</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.import_games_achievements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to return the unlocked achievements
+of the user that is currently logged in to the plugin.
+Call game_achievements_import_success/game_achievements_import_failure for each game_id on the list.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game_id</strong> – ids of the games for which to import unlocked achievements</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.install_game">
+<code class="descname">install_game</code><span class="sig-paren">(</span><em>game_id</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.install_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to install the game
+identified by the provided game_id.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game_id</strong> (<em>str</em>) – id of the game to install</p>
+</dd>
+</dl>
+<p>Example of possible override of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">install_game</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">game_id</span><span class="p">):</span>
+    <span class="n">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">open_uri</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;start client://installgame/{game_id}&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.launch_game">
+<code class="descname">launch_game</code><span class="sig-paren">(</span><em>game_id</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.launch_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to launch the game
+identified by the provided game_id.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game_id</strong> (<em>str</em>) – id of the game to launch</p>
+</dd>
+</dl>
+<p>Example of possible override of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">launch_game</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">game_id</span><span class="p">):</span>
+    <span class="n">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">open_uri</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;start client://launchgame/{game_id}&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.mark_as_read">
+<code class="descname">mark_as_read</code><span class="sig-paren">(</span><em>room_id</em>, <em>last_message_id</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.mark_as_read" title="Permalink to this definition">¶</a></dt>
+<dd><p>WIP, Override this method to mark messages in a chat room as read up to the id provided in the parameter.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>room_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the room</p></li>
+<li><p><strong>last_message_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the last message; room is marked as read only if this id matches the last message id known to the client</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.pass_login_credentials">
+<code class="descname">pass_login_credentials</code><span class="sig-paren">(</span><em>step</em>, <em>credentials</em>, <em>cookies</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.pass_login_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is called if we return galaxy.api.types.NextStep from authenticate or from pass_login_credentials.
+This method’s parameters provide the data extracted from the web page navigation that previous NextStep finished on.
+This method should either return galaxy.api.types.Authentication if the authentication is finished
+or galaxy.api.types.NextStep if it requires going to another cef url.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>step</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – deprecated.</p></li>
+<li><p><strong>credentials</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – end_uri previous NextStep finished on.</p></li>
+<li><p><strong>cookies</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – cookies extracted from the end_uri site.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example of possible override of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">pass_login_credentials</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">cookies</span><span class="p">):</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">got_everything</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span><span class="n">cookies</span><span class="p">):</span>
+        <span class="n">user_data</span> <span class="o">=</span> <span class="n">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">parse_credentials</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span><span class="n">cookies</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">next_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_next_params</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span><span class="n">cookies</span><span class="p">)</span>
+        <span class="n">next_cookies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_next_cookies</span><span class="p">(</span><span class="n">credentials</span><span class="p">,</span><span class="n">cookies</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">NextStep</span><span class="p">(</span><span class="s2">&quot;web_session&quot;</span><span class="p">,</span> <span class="n">next_params</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="n">next_cookies</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">store_credentials</span><span class="p">(</span><span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;credentials&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">Authentication</span><span class="p">(</span><span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;userId&#39;</span><span class="p">],</span> <span class="n">user_data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">])</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plugin main coroutine.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.send_message">
+<code class="descname">send_message</code><span class="sig-paren">(</span><em>room_id</em>, <em>message_text</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.send_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>WIP, Override this method to send message to a chat room.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>room_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the room to which the message should be sent</p></li>
+<li><p><strong>message_text</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – text which should be sent in the message</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="galaxy.api.plugin.Plugin.uninstall_game">
+<code class="descname">uninstall_game</code><span class="sig-paren">(</span><em>game_id</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.Plugin.uninstall_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Override this method to uninstall the game
+identified by the provided game_id.
+This method is called by the GOG Galaxy client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>game_id</strong> (<em>str</em>) – id of the game to uninstall</p>
+</dd>
+</dl>
+<p>Example of possible override of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">async</span> <span class="k">def</span> <span class="nf">uninstall_game</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">game_id</span><span class="p">):</span>
+    <span class="n">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">open_uri</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;start client://uninstallgame/{game_id}&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="galaxy.api.plugin.create_and_run_plugin">
+<code class="descclassname">galaxy.api.plugin.</code><code class="descname">create_and_run_plugin</code><span class="sig-paren">(</span><em>plugin_class</em>, <em>argv</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.plugin.create_and_run_plugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Call this method as an entry point for the implemented plugin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plugin_class</strong> – your plugin class.</p></li>
+<li><p><strong>argv</strong> – command line arguments with which the script was started.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example of possible use of the method:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">create_and_run_plugin</span><span class="p">(</span><span class="n">PlatformPlugin</span><span class="p">,</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-galaxy.api.types">
+<span id="types"></span><h2>types<a class="headerlink" href="#module-galaxy.api.types" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="galaxy.api.types.Authentication">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">Authentication</code><span class="sig-paren">(</span><em>user_id</em>, <em>user_name</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.Authentication" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return this from <a class="reference internal" href="#galaxy.api.plugin.Plugin.authenticate" title="galaxy.api.plugin.Plugin.authenticate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">authenticate()</span></code></a> or <a class="reference internal" href="#galaxy.api.plugin.Plugin.pass_login_credentials" title="galaxy.api.plugin.Plugin.pass_login_credentials"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pass_login_credentials()</span></code></a>
+to inform the client that authentication has successfully finished.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the authenticated user</p></li>
+<li><p><strong>user_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – username of the authenticated user</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.Cookie">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">Cookie</code><span class="sig-paren">(</span><em>name</em>, <em>value</em>, <em>domain=None</em>, <em>path=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.Cookie" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – name of the cookie</p></li>
+<li><p><strong>value</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – value of the cookie</p></li>
+<li><p><strong>domain</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – optional domain of the cookie</p></li>
+<li><p><strong>path</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – optional path of the cookie</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="galaxy.api.types.Cookie.domain">
+<code class="descname">domain</code><em class="property"> = None</em><a class="headerlink" href="#galaxy.api.types.Cookie.domain" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.types.Cookie.path">
+<code class="descname">path</code><em class="property"> = None</em><a class="headerlink" href="#galaxy.api.types.Cookie.path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.NextStep">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">NextStep</code><span class="sig-paren">(</span><em>next_step</em>, <em>auth_params</em>, <em>cookies=None</em>, <em>js=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.NextStep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return this from <a class="reference internal" href="#galaxy.api.plugin.Plugin.authenticate" title="galaxy.api.plugin.Plugin.authenticate"><code class="xref py py-meth docutils literal notranslate"><span class="pre">authenticate()</span></code></a> or <a class="reference internal" href="#galaxy.api.plugin.Plugin.pass_login_credentials" title="galaxy.api.plugin.Plugin.pass_login_credentials"><code class="xref py py-meth docutils literal notranslate"><span class="pre">pass_login_credentials()</span></code></a> to open client built-in browser with given url.
+For example:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">PARAMS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;window_title&quot;</span><span class="p">:</span> <span class="s2">&quot;Login to platform&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;window_width&quot;</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="s2">&quot;window_height&quot;</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
+    <span class="s2">&quot;start_uri&quot;</span><span class="p">:</span> <span class="n">URL</span><span class="p">,</span>
+    <span class="s2">&quot;end_uri_regex&quot;</span><span class="p">:</span> <span class="sa">r</span><span class="s2">&quot;^https://platform_website\.com/.*&quot;</span>
+<span class="p">}</span>
+
+<span class="n">JS</span> <span class="o">=</span> <span class="p">{</span><span class="sa">r</span><span class="s2">&quot;^https://platform_website\.com/.*&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="sa">r</span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        location.reload();</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+<span class="p">]}</span>
+
+<span class="n">COOKIES</span> <span class="o">=</span> <span class="p">[</span><span class="n">Cookie</span><span class="p">(</span><span class="s2">&quot;Cookie1&quot;</span><span class="p">,</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span> <span class="s2">&quot;.platform.com&quot;</span><span class="p">),</span>
+    <span class="n">Cookie</span><span class="p">(</span><span class="s2">&quot;Cookie2&quot;</span><span class="p">,</span> <span class="s2">&quot;ok&quot;</span><span class="p">,</span> <span class="s2">&quot;.platform.com&quot;</span><span class="p">)</span>
+    <span class="p">]</span>
+
+<span class="n">async</span> <span class="k">def</span> <span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stored_credentials</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">stored_credentials</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">NextStep</span><span class="p">(</span><span class="s2">&quot;web_session&quot;</span><span class="p">,</span> <span class="n">PARAMS</span><span class="p">,</span> <span class="n">cookies</span><span class="o">=</span><span class="n">COOKIES</span><span class="p">,</span> <span class="n">js</span><span class="o">=</span><span class="n">JS</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>auth_params</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – configuration options: {“window_title”: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, “window_width”: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, “window_height”: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, “start_uri”: <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, “end_uri_regex”: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>}</p></li>
+<li><p><strong>cookies</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#galaxy.api.types.Cookie" title="galaxy.api.types.Cookie"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cookie</span></code></a>]]) – cookies to pass to the NextStep of internal browser authentication</p></li>
+<li><p><strong>js</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]]) – a map of the url regex patterns into the list of <em>js</em> scripts that should be executed on every document at given step of internal browser authentication.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="galaxy.api.types.NextStep.cookies">
+<code class="descname">cookies</code><em class="property"> = None</em><a class="headerlink" href="#galaxy.api.types.NextStep.cookies" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.types.NextStep.js">
+<code class="descname">js</code><em class="property"> = None</em><a class="headerlink" href="#galaxy.api.types.NextStep.js" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.LicenseInfo">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">LicenseInfo</code><span class="sig-paren">(</span><em>license_type</em>, <em>owner=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.LicenseInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information about the license of related product.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>license_type</strong> (<a class="reference internal" href="#galaxy.api.consts.LicenseType" title="galaxy.api.consts.LicenseType"><code class="xref py py-class docutils literal notranslate"><span class="pre">LicenseType</span></code></a>) – type of license</p></li>
+<li><p><strong>owner</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – optional owner of the related product, defaults to currently authenticated user</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="galaxy.api.types.LicenseInfo.owner">
+<code class="descname">owner</code><em class="property"> = None</em><a class="headerlink" href="#galaxy.api.types.LicenseInfo.owner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.Dlc">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">Dlc</code><span class="sig-paren">(</span><em>dlc_id</em>, <em>dlc_title</em>, <em>license_info</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.Dlc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Downloadable content object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dlc_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the dlc</p></li>
+<li><p><strong>dlc_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – title of the dlc</p></li>
+<li><p><strong>license_info</strong> (<a class="reference internal" href="#galaxy.api.types.LicenseInfo" title="galaxy.api.types.LicenseInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">LicenseInfo</span></code></a>) – information about the license attached to the dlc</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.Game">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">Game</code><span class="sig-paren">(</span><em>game_id</em>, <em>game_title</em>, <em>dlcs</em>, <em>license_info</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.Game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Game object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – unique identifier of the game, this will be passed as parameter for methods such as launch_game</p></li>
+<li><p><strong>game_title</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – title of the game</p></li>
+<li><p><strong>dlcs</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#galaxy.api.types.Dlc" title="galaxy.api.types.Dlc"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dlc</span></code></a>]]) – list of dlcs available for the game</p></li>
+<li><p><strong>license_info</strong> (<a class="reference internal" href="#galaxy.api.types.LicenseInfo" title="galaxy.api.types.LicenseInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">LicenseInfo</span></code></a>) – information about the license attached to the game</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.Achievement">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">Achievement</code><span class="sig-paren">(</span><em>unlock_time</em>, <em>achievement_id=None</em>, <em>achievement_name=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.Achievement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Achievement, has to be initialized with either id or name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>unlock_time</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – unlock time of the achievement</p></li>
+<li><p><strong>achievement_id</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – optional id of the achievement</p></li>
+<li><p><strong>achievement_name</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – optional name of the achievement</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="galaxy.api.types.Achievement.achievement_id">
+<code class="descname">achievement_id</code><em class="property"> = None</em><a class="headerlink" href="#galaxy.api.types.Achievement.achievement_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.types.Achievement.achievement_name">
+<code class="descname">achievement_name</code><em class="property"> = None</em><a class="headerlink" href="#galaxy.api.types.Achievement.achievement_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.LocalGame">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">LocalGame</code><span class="sig-paren">(</span><em>game_id</em>, <em>local_game_state</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.LocalGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Game locally present on the authenticated user’s computer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the game</p></li>
+<li><p><strong>local_game_state</strong> (<a class="reference internal" href="#galaxy.api.consts.LocalGameState" title="galaxy.api.consts.LocalGameState"><code class="xref py py-class docutils literal notranslate"><span class="pre">LocalGameState</span></code></a>) – state of the game</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.Presence">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">Presence</code><span class="sig-paren">(</span><em>presence_state</em>, <em>game_id=None</em>, <em>presence_status=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.Presence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information about a presence of a user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>presence_state</strong> (<a class="reference internal" href="#galaxy.api.consts.PresenceState" title="galaxy.api.consts.PresenceState"><code class="xref py py-class docutils literal notranslate"><span class="pre">PresenceState</span></code></a>) – the state in which the user’s presence is</p></li>
+<li><p><strong>game_id</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – id of the game which the user is currently playing</p></li>
+<li><p><strong>presence_status</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – optional attached string with the detailed description of the user’s presence</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="galaxy.api.types.Presence.game_id">
+<code class="descname">game_id</code><em class="property"> = None</em><a class="headerlink" href="#galaxy.api.types.Presence.game_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.types.Presence.presence_status">
+<code class="descname">presence_status</code><em class="property"> = None</em><a class="headerlink" href="#galaxy.api.types.Presence.presence_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.UserInfo">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">UserInfo</code><span class="sig-paren">(</span><em>user_id</em>, <em>is_friend</em>, <em>user_name</em>, <em>avatar_url</em>, <em>presence</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.UserInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Detailed information about a user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – of the user</p></li>
+<li><p><strong>is_friend</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – whether the user is a friend of the currently authenticated user</p></li>
+<li><p><strong>user_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – of the user</p></li>
+<li><p><strong>avatar_url</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – to the avatar of the user</p></li>
+<li><p><strong>presence</strong> (<a class="reference internal" href="#galaxy.api.types.Presence" title="galaxy.api.types.Presence"><code class="xref py py-class docutils literal notranslate"><span class="pre">Presence</span></code></a>) – about the users presence</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.FriendInfo">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">FriendInfo</code><span class="sig-paren">(</span><em>user_id</em>, <em>user_name</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.FriendInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Information about a friend of the currently authenticated user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the user</p></li>
+<li><p><strong>user_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – username of the user</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.Room">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">Room</code><span class="sig-paren">(</span><em>room_id</em>, <em>unread_message_count</em>, <em>last_message_id</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.Room" title="Permalink to this definition">¶</a></dt>
+<dd><p>WIP, Chatroom.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>room_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the room</p></li>
+<li><p><strong>unread_message_count</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – number of unread messages in the room</p></li>
+<li><p><strong>last_message_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the last message in the room</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.Message">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">Message</code><span class="sig-paren">(</span><em>message_id</em>, <em>sender_id</em>, <em>sent_time</em>, <em>message_text</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.Message" title="Permalink to this definition">¶</a></dt>
+<dd><p>WIP, A chatroom message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the message</p></li>
+<li><p><strong>sender_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the sender of the message</p></li>
+<li><p><strong>sent_time</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – time at which the message was sent</p></li>
+<li><p><strong>message_text</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – text attached to the message</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.types.GameTime">
+<em class="property">class </em><code class="descclassname">galaxy.api.types.</code><code class="descname">GameTime</code><span class="sig-paren">(</span><em>game_id</em>, <em>time_played</em>, <em>last_played_time</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.types.GameTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Game time of a game, defines the total time spent in the game
+and the last time the game was played.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>game_id</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – id of the related game</p></li>
+<li><p><strong>time_played</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – the total time spent in the game in <strong>minutes</strong></p></li>
+<li><p><strong>last_time_played</strong> – last time the game was played (<strong>unix timestamp</strong>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-galaxy.api.consts">
+<span id="consts"></span><h2>consts<a class="headerlink" href="#module-galaxy.api.consts" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="galaxy.api.consts.Platform">
+<em class="property">class </em><code class="descclassname">galaxy.api.consts.</code><code class="descname">Platform</code><a class="headerlink" href="#galaxy.api.consts.Platform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Supported external platforms</p>
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.Unknown">
+<code class="descname">Unknown</code><em class="property"> = 'unknown'</em><a class="headerlink" href="#galaxy.api.consts.Platform.Unknown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.Gog">
+<code class="descname">Gog</code><em class="property"> = 'gog'</em><a class="headerlink" href="#galaxy.api.consts.Platform.Gog" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.Steam">
+<code class="descname">Steam</code><em class="property"> = 'steam'</em><a class="headerlink" href="#galaxy.api.consts.Platform.Steam" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.Psn">
+<code class="descname">Psn</code><em class="property"> = 'psn'</em><a class="headerlink" href="#galaxy.api.consts.Platform.Psn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.XBoxOne">
+<code class="descname">XBoxOne</code><em class="property"> = 'xboxone'</em><a class="headerlink" href="#galaxy.api.consts.Platform.XBoxOne" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.Generic">
+<code class="descname">Generic</code><em class="property"> = 'generic'</em><a class="headerlink" href="#galaxy.api.consts.Platform.Generic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.Origin">
+<code class="descname">Origin</code><em class="property"> = 'origin'</em><a class="headerlink" href="#galaxy.api.consts.Platform.Origin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.Uplay">
+<code class="descname">Uplay</code><em class="property"> = 'uplay'</em><a class="headerlink" href="#galaxy.api.consts.Platform.Uplay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.Battlenet">
+<code class="descname">Battlenet</code><em class="property"> = 'battlenet'</em><a class="headerlink" href="#galaxy.api.consts.Platform.Battlenet" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.Platform.Epic">
+<code class="descname">Epic</code><em class="property"> = 'epic'</em><a class="headerlink" href="#galaxy.api.consts.Platform.Epic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.consts.LicenseType">
+<em class="property">class </em><code class="descclassname">galaxy.api.consts.</code><code class="descname">LicenseType</code><a class="headerlink" href="#galaxy.api.consts.LicenseType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Possible game license types, understandable for the GOG Galaxy client.</p>
+<dl class="attribute">
+<dt id="galaxy.api.consts.LicenseType.Unknown">
+<code class="descname">Unknown</code><em class="property"> = 'Unknown'</em><a class="headerlink" href="#galaxy.api.consts.LicenseType.Unknown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.LicenseType.SinglePurchase">
+<code class="descname">SinglePurchase</code><em class="property"> = 'SinglePurchase'</em><a class="headerlink" href="#galaxy.api.consts.LicenseType.SinglePurchase" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.LicenseType.FreeToPlay">
+<code class="descname">FreeToPlay</code><em class="property"> = 'FreeToPlay'</em><a class="headerlink" href="#galaxy.api.consts.LicenseType.FreeToPlay" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.LicenseType.OtherUserLicense">
+<code class="descname">OtherUserLicense</code><em class="property"> = 'OtherUserLicense'</em><a class="headerlink" href="#galaxy.api.consts.LicenseType.OtherUserLicense" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.consts.LocalGameState">
+<em class="property">class </em><code class="descclassname">galaxy.api.consts.</code><code class="descname">LocalGameState</code><a class="headerlink" href="#galaxy.api.consts.LocalGameState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Flag</span></code></p>
+<p>Possible states that a local game can be in.
+For example a game which is both installed and currently running should have its state set as a “bitwise or” of Running and Installed flags:
+<code class="docutils literal notranslate"><span class="pre">local_game_state=&lt;LocalGameState.Running|Installed:</span> <span class="pre">3&gt;</span></code></p>
+<dl class="attribute">
+<dt id="galaxy.api.consts.LocalGameState.None_">
+<code class="descname">None_</code><em class="property"> = 0</em><a class="headerlink" href="#galaxy.api.consts.LocalGameState.None_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.LocalGameState.Installed">
+<code class="descname">Installed</code><em class="property"> = 1</em><a class="headerlink" href="#galaxy.api.consts.LocalGameState.Installed" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.LocalGameState.Running">
+<code class="descname">Running</code><em class="property"> = 2</em><a class="headerlink" href="#galaxy.api.consts.LocalGameState.Running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="galaxy.api.consts.PresenceState">
+<em class="property">class </em><code class="descclassname">galaxy.api.consts.</code><code class="descname">PresenceState</code><a class="headerlink" href="#galaxy.api.consts.PresenceState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>“Possible states that a user can be in.</p>
+<dl class="attribute">
+<dt id="galaxy.api.consts.PresenceState.Unknown">
+<code class="descname">Unknown</code><em class="property"> = 'Unknown'</em><a class="headerlink" href="#galaxy.api.consts.PresenceState.Unknown" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.PresenceState.Online">
+<code class="descname">Online</code><em class="property"> = 'online'</em><a class="headerlink" href="#galaxy.api.consts.PresenceState.Online" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.PresenceState.Offline">
+<code class="descname">Offline</code><em class="property"> = 'offline'</em><a class="headerlink" href="#galaxy.api.consts.PresenceState.Offline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="galaxy.api.consts.PresenceState.Away">
+<code class="descname">Away</code><em class="property"> = 'away'</em><a class="headerlink" href="#galaxy.api.consts.PresenceState.Away" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="errors">
+<h2>errors<a class="headerlink" href="#errors" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="galaxy.api.jsonrpc.ApplicationError">
+<em class="property">exception </em><code class="descclassname">galaxy.api.jsonrpc.</code><code class="descname">ApplicationError</code><span class="sig-paren">(</span><em>code</em>, <em>message</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.jsonrpc.ApplicationError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.JsonRpcError</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.jsonrpc.UnknownError">
+<em class="property">exception </em><code class="descclassname">galaxy.api.jsonrpc.</code><code class="descname">UnknownError</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.jsonrpc.UnknownError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<span class="target" id="module-galaxy.api.errors"></span><dl class="exception">
+<dt id="galaxy.api.errors.AuthenticationRequired">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">AuthenticationRequired</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.AuthenticationRequired" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.BackendNotAvailable">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">BackendNotAvailable</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.BackendNotAvailable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.BackendTimeout">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">BackendTimeout</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.BackendTimeout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.BackendError">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">BackendError</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.BackendError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.UnknownBackendResponse">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">UnknownBackendResponse</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.UnknownBackendResponse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.InvalidCredentials">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">InvalidCredentials</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.InvalidCredentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.NetworkError">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">NetworkError</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.NetworkError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.LoggedInElsewhere">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">LoggedInElsewhere</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.LoggedInElsewhere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.ProtocolError">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">ProtocolError</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.ProtocolError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.TemporaryBlocked">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">TemporaryBlocked</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.TemporaryBlocked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.Banned">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">Banned</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.Banned" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.AccessDenied">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">AccessDenied</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.AccessDenied" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.ParentalControlBlock">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">ParentalControlBlock</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.ParentalControlBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.DeviceBlocked">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">DeviceBlocked</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.DeviceBlocked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.RegionBlocked">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">RegionBlocked</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.RegionBlocked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.FailedParsingManifest">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">FailedParsingManifest</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.FailedParsingManifest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.TooManyMessagesSent">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">TooManyMessagesSent</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.TooManyMessagesSent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.IncoherentLastMessage">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">IncoherentLastMessage</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.IncoherentLastMessage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.MessageNotFound">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">MessageNotFound</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.MessageNotFound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="galaxy.api.errors.ImportInProgress">
+<em class="property">exception </em><code class="descclassname">galaxy.api.errors.</code><code class="descname">ImportInProgress</code><span class="sig-paren">(</span><em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galaxy.api.errors.ImportInProgress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#galaxy.api.jsonrpc.ApplicationError" title="galaxy.api.jsonrpc.ApplicationError"><code class="xref py py-class docutils literal notranslate"><span class="pre">galaxy.api.jsonrpc.ApplicationError</span></code></a></p>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="GOG Galaxy - Community Integration - Python API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Galaxy SDK Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
